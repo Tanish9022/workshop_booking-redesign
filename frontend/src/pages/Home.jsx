@@ -51,10 +51,10 @@ const Home = () => {
               </div>
               
               <div className="max-w-2xl">
-                <h1 className="text-5xl md:text-8xl font-black tracking-tight mb-8 leading-[1.05] text-transparent bg-clip-text bg-gradient-to-br from-white via-white to-blue-500">
-                  Master the Art of Modern Engineering.
+                <h1 className="text-5xl md:text-7xl font-bold text-white tracking-tight leading-tight">
+                  Modern Engineering.
                 </h1>
-                <p className="text-xl md:text-2xl text-slate-400 mb-12 leading-relaxed font-medium">
+                <p className="text-lg md:text-xl text-gray-300 mt-4 max-w-xl leading-relaxed">
                   Join elite workshops led by industry pioneers. Hands-on projects, expert mentorship, and a world-class curriculum designed for high-performers.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-6">
