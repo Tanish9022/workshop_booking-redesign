@@ -1,7 +1,6 @@
 import React, { Suspense, lazy } from 'react'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
-import './App.css'
 
 // Lazy load the Home component
 const Home = lazy(() => import('./pages/Home'))
