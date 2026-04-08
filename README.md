@@ -61,11 +61,3 @@ npm run dev
 
 ## Backend Note
 Due to the deprecation of `distutils` in Python 3.12, the legacy Django 3.0.7 backend requires a Python 3.10 or 3.11 environment. This redesign focuses on the frontend layer, ensuring that the UI is ready for integration once a compatible backend environment is provisioned.
-
-## Submission Checklist
-- [x] Responsive Mobile-First Design
-- [x] Tailwind CSS Implementation
-- [x] Modular React Components
-- [x] Accessibility (ARIA, Contrast)
-- [x] Performance Optimization (Lazy Loading)
-- [x] Documentation & Clean Code
