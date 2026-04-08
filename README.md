@@ -1,5 +1,15 @@
 # **Workshop Booking**
 
+> **IMPORTANT:** This project requires **Python 3.10** for compatibility with Django 3.0.7.
+
+## Installation Instructions
+
+1.  **Install Python 3.10:**
+    *   Download and install Python 3.10 from [python.org](https://www.python.org/downloads/windows/).
+    *   Ensure "Add Python to PATH" is checked during installation.
+2.  **Verify Installation:**
+    *   Open a new terminal and run `py -3.10 --version` or `python3.10 --version`.
+
 > This website is for coordinators to book a workshop(s), they can book a workshop based on instructors posts or can propose a workshop date based on their convenience.
 
 
