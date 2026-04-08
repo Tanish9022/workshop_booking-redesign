@@ -39,7 +39,7 @@ const Home = () => {
     <div className="flex flex-col min-h-screen">
       <main className="flex-grow">
         {/* Hero section */}
-        <section className="bg-slate-950 text-white py-24 px-4 md:py-48 overflow-hidden relative">
+        <section className="bg-gradient-to-br from-[#020617] via-[#020617] to-[#0a1a3a] text-white py-24 px-4 md:py-48 overflow-hidden relative">
           {/* Refined Background Gradient Overlay */}
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-blue-900/20 via-transparent to-transparent"></div>
           
@@ -51,10 +51,10 @@ const Home = () => {
               </div>
               
               <div className="max-w-2xl">
-                <h1 className="text-5xl md:text-7xl font-bold text-white tracking-tight leading-tight">
+                <h1 className="text-5xl font-bold text-white tracking-tight leading-tight">
                   Modern Engineering.
                 </h1>
-                <p className="text-lg md:text-xl text-gray-300 mt-4 max-w-xl leading-relaxed">
+                <p className="text-lg text-gray-300 mt-4 max-w-xl leading-relaxed">
                   Join elite workshops led by industry pioneers. Hands-on projects, expert mentorship, and a world-class curriculum designed for high-performers.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-6">
