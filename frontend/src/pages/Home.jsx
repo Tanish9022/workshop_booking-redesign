@@ -1,6 +1,34 @@
 import React from 'react';
+import Card from '../components/Cards';
 
 const Home = () => {
+  const workshops = [
+    {
+      id: 1,
+      title: "Introduction to React Hooks",
+      description: "Master the basics of React Hooks and state management in this comprehensive beginner-friendly workshop.",
+      date: "May 15, 2026",
+      price: "$49",
+      duration: "3 Hours"
+    },
+    {
+      id: 2,
+      title: "Tailwind CSS Mastery",
+      description: "Learn how to build beautiful, responsive layouts at lightning speed using utility-first CSS.",
+      date: "May 22, 2026",
+      price: "$39",
+      duration: "4 Hours"
+    },
+    {
+      id: 3,
+      title: "Advanced JavaScript Patterns",
+      description: "Deep dive into closures, prototypes, and asynchronous programming to write cleaner code.",
+      date: "June 05, 2026",
+      price: "$59",
+      duration: "5 Hours"
+    }
+  ];
+
   return (
     <div className="flex flex-col min-h-screen">
       <main className="flex-grow">
@@ -33,18 +61,33 @@ const Home = () => {
           </div>
         </section>
 
-        {/* Featured Workshops (Step 5 will enhance this) */}
-        <section className="py-16 px-4 bg-white">
-          <div className="max-w-7xl mx-auto text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Featured Workshops</h2>
-            <p className="text-lg text-gray-600">Discover our most popular courses starting soon.</p>
+        {/* Featured Workshops */}
+        <section className="py-20 px-4 bg-gray-50">
+          <div className="max-w-7xl mx-auto text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Featured Workshops</h2>
+            <div className="w-24 h-1 bg-indigo-600 mx-auto rounded-full mb-6"></div>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Choose from our curated list of high-quality workshops led by industry experts.
+            </p>
           </div>
           
-          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Placeholders for cards */}
-            <div className="p-8 border border-gray-100 rounded-xl bg-gray-50 h-40 animate-pulse"></div>
-            <div className="p-8 border border-gray-100 rounded-xl bg-gray-50 h-40 animate-pulse"></div>
-            <div className="p-8 border border-gray-100 rounded-xl bg-gray-50 h-40 animate-pulse"></div>
+          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4 sm:px-0">
+            {workshops.map((workshop) => (
+              <Card 
+                key={workshop.id}
+                title={workshop.title}
+                description={workshop.description}
+                date={workshop.date}
+                price={workshop.price}
+                duration={workshop.duration}
+              />
+            ))}
+          </div>
+          
+          <div className="text-center mt-16">
+            <button className="text-indigo-600 font-bold text-lg hover:text-indigo-700 underline-offset-8 hover:underline decoration-2 transition-all">
+              View All Workshops &rarr;
+            </button>
           </div>
         </section>
       </main>
