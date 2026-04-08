@@ -1,5 +1,6 @@
 import React from 'react';
 import Card from '../components/Cards';
+import Form from '../components/Form';
 
 const Home = () => {
   const workshops = [
@@ -29,6 +30,11 @@ const Home = () => {
     }
   ];
 
+  const scrollToBooking = () => {
+    const element = document.getElementById('booking-section');
+    element?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <div className="flex flex-col min-h-screen">
       <main className="flex-grow">
@@ -43,10 +49,13 @@ const Home = () => {
                 Join thousands of students and professionals in our hands-on booking platform designed for modern learners.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <button className="bg-white text-indigo-700 px-8 py-3 rounded-lg font-bold text-lg hover:bg-indigo-50 transition-colors shadow-lg">
-                  Explore Workshops
+                <button 
+                  onClick={scrollToBooking}
+                  className="bg-white text-indigo-700 px-8 py-3 rounded-lg font-bold text-lg hover:bg-indigo-50 transition-all transform hover:scale-105 active:scale-95 shadow-lg"
+                >
+                  Book a Workshop
                 </button>
-                <button className="bg-indigo-600 text-white border border-indigo-400 px-8 py-3 rounded-lg font-bold text-lg hover:bg-indigo-500 transition-colors">
+                <button className="bg-indigo-600 text-white border border-indigo-400 px-8 py-3 rounded-lg font-bold text-lg hover:bg-indigo-500 transition-all">
                   Learn More
                 </button>
               </div>
@@ -88,6 +97,36 @@ const Home = () => {
             <button className="text-indigo-600 font-bold text-lg hover:text-indigo-700 underline-offset-8 hover:underline decoration-2 transition-all">
               View All Workshops &rarr;
             </button>
+          </div>
+        </section>
+
+        {/* Booking Section */}
+        <section id="booking-section" className="py-24 px-4 bg-white relative overflow-hidden">
+          <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16">
+            <div className="lg:w-1/2">
+              <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">Ready to start your journey?</h2>
+              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+                Take the first step towards mastering new skills. Our booking process is quick, secure, and easy.
+              </p>
+              <ul className="space-y-4">
+                {[
+                  "Expert-led hands-on training",
+                  "Comprehensive study materials",
+                  "Official certification upon completion",
+                  "Lifetime access to community forum"
+                ].map((item, index) => (
+                  <li key={index} className="flex items-center text-gray-700 font-medium">
+                    <svg className="w-6 h-6 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="lg:w-1/2 w-full">
+              <Form />
+            </div>
           </div>
         </section>
       </main>
