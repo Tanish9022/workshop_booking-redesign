@@ -53,8 +53,9 @@ const Form = () => {
             id="workshop"
             value={formData.workshop}
             onChange={(e) => setFormData({...formData, workshop: e.target.value})}
-            className="w-full rounded-xl border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 text-base p-3 border appearance-none bg-gray-50"
+            className="w-full px-4 py-3 border border-gray-300 rounded-xl bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 appearance-none"
           >
+            <option value="">Select Workshop</option>
             <option value="react-hooks">Introduction to React Hooks</option>
             <option value="tailwind-css">Tailwind CSS Mastery</option>
             <option value="advanced-js">Advanced JavaScript Patterns</option>
