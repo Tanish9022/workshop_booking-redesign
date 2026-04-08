@@ -39,48 +39,51 @@ const Home = () => {
     <div className="flex flex-col min-h-screen">
       <main className="flex-grow">
         {/* Hero section */}
-        <section className="bg-indigo-700 text-white py-20 px-4 md:py-32 overflow-hidden relative">
-          <div className="max-w-7xl mx-auto relative z-10">
-            <div className="md:w-2/3 lg:w-1/2">
-              <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-6">
-                Master New Skills with Our Expert Workshops
+        <section className="bg-slate-900 text-white py-24 px-4 md:py-40 overflow-hidden relative">
+          {/* Subtle Grid Pattern */}
+          <div className="absolute inset-0 opacity-10" style={{backgroundImage: 'radial-gradient(#3b82f6 1px, transparent 1px)', backgroundSize: '40px 40px'}}></div>
+          
+          <div className="max-w-7xl mx-auto relative z-10 px-4 sm:px-6 lg:px-8">
+            <div className="md:w-3/4 lg:w-2/3">
+              <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm font-bold mb-8">
+                <span className="flex h-2 w-2 rounded-full bg-blue-400 mr-3 animate-pulse"></span>
+                Now Booking for Summer 2026
+              </div>
+              <h1 className="text-5xl md:text-7xl font-black tracking-tight mb-8 leading-[1.1]">
+                Master the Art of <span className="text-blue-500">Modern Engineering.</span>
               </h1>
-              <p className="text-xl md:text-2xl text-indigo-100 mb-10 leading-relaxed">
-                Join thousands of students and professionals in our hands-on booking platform designed for modern learners.
+              <p className="text-xl md:text-2xl text-slate-400 mb-12 leading-relaxed max-w-2xl font-medium">
+                Join elite workshops led by industry pioneers. Hands-on projects, expert mentorship, and a world-class curriculum.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-5">
                 <button 
                   onClick={scrollToBooking}
-                  className="bg-white text-indigo-700 px-8 py-3 rounded-lg font-bold text-lg hover:bg-indigo-50 transition-all transform hover:scale-105 active:scale-95 shadow-lg"
+                  className="bg-blue-600 text-white px-10 py-4 rounded-2xl font-extrabold text-lg shadow-2xl shadow-blue-500/30 hover:bg-blue-700 transition-all transform hover:scale-105 active:scale-95 text-center"
                 >
-                  Book a Workshop
+                  Book Your Spot
                 </button>
-                <button className="bg-indigo-600 text-white border border-indigo-400 px-8 py-3 rounded-lg font-bold text-lg hover:bg-indigo-500 transition-all">
+                <button className="bg-slate-800 text-white border border-slate-700 px-10 py-4 rounded-2xl font-extrabold text-lg hover:bg-slate-700 transition-all text-center">
                   Learn More
                 </button>
               </div>
             </div>
           </div>
           
-          {/* Decorative background element */}
-          <div className="absolute top-0 right-0 -mr-20 -mt-20 hidden lg:block opacity-20">
-            <svg width="400" height="400" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="200" cy="200" r="200" fill="white" />
-            </svg>
-          </div>
+          {/* Gradient Orb */}
+          <div className="absolute top-1/2 -right-20 -translate-y-1/2 w-96 h-96 bg-blue-600/20 rounded-full blur-[120px] hidden lg:block"></div>
         </section>
 
         {/* Featured Workshops */}
-        <section className="py-20 px-4 bg-gray-50">
-          <div className="max-w-7xl mx-auto text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Featured Workshops</h2>
-            <div className="w-24 h-1 bg-indigo-600 mx-auto rounded-full mb-6"></div>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Choose from our curated list of high-quality workshops led by industry experts.
+        <section className="py-24 px-4 bg-slate-50/50">
+          <div className="max-w-7xl mx-auto text-center mb-20 px-4">
+            <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-6 tracking-tight">Featured Workshops</h2>
+            <div className="w-20 h-1.5 bg-blue-600 mx-auto rounded-full mb-8"></div>
+            <p className="text-xl text-slate-500 max-w-2xl mx-auto font-medium">
+              Curated, high-impact learning experiences designed for real-world application.
             </p>
           </div>
           
-          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4 sm:px-0">
+          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-4 sm:px-6 lg:px-8">
             {workshops.map((workshop) => (
               <Card 
                 key={workshop.id}
@@ -93,38 +96,43 @@ const Home = () => {
             ))}
           </div>
           
-          <div className="text-center mt-16">
-            <button className="text-indigo-600 font-bold text-lg hover:text-indigo-700 underline-offset-8 hover:underline decoration-2 transition-all">
-              View All Workshops &rarr;
+          <div className="text-center mt-20">
+            <button className="text-blue-600 font-extrabold text-xl hover:text-blue-700 transition-all flex items-center justify-center mx-auto group">
+              View All Workshops 
+              <span className="ml-2 group-hover:translate-x-2 transition-transform">&rarr;</span>
             </button>
           </div>
         </section>
 
         {/* Booking Section */}
-        <section id="booking-section" className="py-24 px-4 bg-white relative overflow-hidden">
-          <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16">
+        <section id="booking-section" className="py-32 px-4 bg-white relative overflow-hidden">
+          <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-20 px-4 sm:px-6 lg:px-8">
             <div className="lg:w-1/2">
-              <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">Ready to start your journey?</h2>
-              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                Take the first step towards mastering new skills. Our booking process is quick, secure, and easy.
+              <h2 className="text-4xl md:text-6xl font-black text-slate-900 mb-8 tracking-tight">Ready to level up?</h2>
+              <p className="text-xl text-slate-500 mb-10 leading-relaxed font-medium">
+                Take the first step towards mastery. Our booking process is streamlined, secure, and designed for your success.
               </p>
-              <ul className="space-y-4">
+              <ul className="space-y-6">
                 {[
-                  "Expert-led hands-on training",
-                  "Comprehensive study materials",
-                  "Official certification upon completion",
-                  "Lifetime access to community forum"
+                  "Expert-led interactive sessions",
+                  "Comprehensive curriculum & resources",
+                  "Industry-recognized certification",
+                  "Private Discord community access"
                 ].map((item, index) => (
-                  <li key={index} className="flex items-center text-gray-700 font-medium">
-                    <svg className="w-6 h-6 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                    </svg>
+                  <li key={index} className="flex items-center text-slate-700 font-bold text-lg">
+                    <div className="w-8 h-8 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
                     {item}
                   </li>
                 ))}
               </ul>
             </div>
-            <div className="lg:w-1/2 w-full">
+            <div className="lg:w-1/2 w-full relative">
+               {/* Background Glow for Form */}
+              <div className="absolute -inset-4 bg-blue-100/50 rounded-[2.5rem] blur-2xl -z-10"></div>
               <Form />
             </div>
           </div>
