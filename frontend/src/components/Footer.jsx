@@ -1,12 +1,12 @@
 import React from 'react';
+import { FaGithub, FaTwitter, FaDiscord } from 'react-icons/fa';
 
 /**
  * UX IMPROVEMENTS:
- * 1. Visual Consistency: Light-themed design matches the rest of the application.
- * 2. Readability: High-contrast text on gray-100 background.
- * 3. Spacing: Added mt-20 to provide a clear break between content and footer.
- * 4. Accessibility: Maintained aria-labels and semantic structure.
- * 5. Minimal Design: Clean lines with subtle shadow-sm for depth.
+ * 1. Social Integration: Added GitHub, Twitter, and Discord icons with react-icons.
+ * 2. Visual Style: Icons are medium-sized (text-xl) with smooth transition effects.
+ * 3. Interactive State: text-gray-500 default and text-blue-600 on hover.
+ * 4. Accessibility: Added aria-label for screen reader support.
  */
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -23,20 +23,36 @@ const Footer = () => {
           <p className="text-gray-600 font-medium leading-relaxed mb-6">
             The leading platform for high-impact engineering workshops. We bridge the gap between academia and industry for the next generation of builders.
           </p>
-          <div className="flex items-center gap-3">
-            {/* Social Links with aria-labels */}
-            {['github', 'twitter', 'discord'].map((social) => (
-              <a 
-                key={social}
-                href={`#${social}`}
-                className="w-10 h-10 rounded-lg bg-white border border-gray-200 flex items-center justify-center text-gray-500 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all shadow-xs"
-                aria-label={`Follow us on ${social}`}
-              >
-                <span className="sr-only">{social}</span>
-                {/* SVG placeholders for social icons */}
-                <div className="w-5 h-5 bg-current rounded-sm opacity-40"></div>
-              </a>
-            ))}
+          
+          {/* Social Links Section */}
+          <div className="flex items-center gap-4">
+            <a 
+              href="https://github.com" 
+              className="text-gray-500 hover:text-blue-600 transition-colors text-xl"
+              aria-label="Follow us on GitHub"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaGithub />
+            </a>
+            <a 
+              href="https://twitter.com" 
+              className="text-gray-500 hover:text-blue-600 transition-colors text-xl"
+              aria-label="Follow us on Twitter"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaTwitter />
+            </a>
+            <a 
+              href="https://discord.com" 
+              className="text-gray-500 hover:text-blue-600 transition-colors text-xl"
+              aria-label="Follow us on Discord"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaDiscord />
+            </a>
           </div>
         </div>
 
