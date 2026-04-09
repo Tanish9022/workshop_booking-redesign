@@ -4,21 +4,21 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="bg-white/70 backdrop-blur-xl shadow-sm sticky top-0 z-50 border-b border-white/10" aria-label="Main Navigation">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-20 items-center">
+    <nav className="bg-white border-b border-gray-200 sticky top-0 z-50" aria-label="Main Navigation">
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
+        <div className="flex justify-between h-16 items-center">
           <div className="flex-shrink-0 flex items-center">
-            <a href="/" className="text-2xl font-extrabold text-blue-600 tracking-tight focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg px-2 transition-all" aria-label="WorkshopPortal Home">
-              Workshop<span className="text-slate-800">Portal</span>
+            <a href="/" className="text-xl font-bold text-blue-600 tracking-tight" aria-label="WorkshopPortal Home">
+              Workshop<span className="text-slate-900">Portal</span>
             </a>
           </div>
           
           {/* Desktop Menu */}
-          <div className="hidden md:flex space-x-10 items-center">
-            <a href="/" className="text-slate-600 hover:text-blue-600 px-1 py-2 text-sm font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-md">Home</a>
-            <a href="/workshops" className="text-slate-600 hover:text-blue-600 px-1 py-2 text-sm font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-md">Workshops</a>
+          <div className="hidden md:flex space-x-8 items-center">
+            <a href="/" className="text-gray-600 hover:text-blue-600 text-sm font-medium transition-colors">Home</a>
+            <a href="/workshops" className="text-gray-600 hover:text-blue-600 text-sm font-medium transition-colors">Workshops</a>
             <button 
-              className="ml-4 bg-blue-600 text-white px-7 py-3 rounded-xl text-sm font-bold shadow-lg shadow-blue-100 hover:bg-blue-700 hover:shadow-blue-200 transition-all transform hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+              className="ml-4 bg-blue-600 text-white px-5 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 transition"
               aria-label="Book a Workshop"
             >
               Book Workshop
@@ -51,12 +51,12 @@ const Navbar = () => {
       {/* Mobile Menu */}
       {isOpen && (
         <div className="md:hidden" id="mobile-menu">
-          <div className="px-4 pt-4 pb-6 space-y-2 sm:px-6 bg-white border-t border-slate-100 shadow-xl rounded-b-2xl">
-            <a href="/" className="text-slate-600 hover:text-blue-600 hover:bg-blue-50 block px-4 py-3 rounded-xl text-base font-semibold transition-all">Home</a>
-            <a href="/workshops" className="text-slate-600 hover:text-blue-600 hover:bg-blue-50 block px-4 py-3 rounded-xl text-base font-semibold transition-all">Workshops</a>
+          <div className="px-6 py-6 space-y-2 bg-white border-t border-gray-100">
+            <a href="/" className="text-gray-600 hover:text-blue-600 block px-4 py-2 text-base font-medium transition">Home</a>
+            <a href="/workshops" className="text-gray-600 hover:text-blue-600 block px-4 py-2 text-base font-medium transition">Workshops</a>
             <div className="pt-2">
               <button 
-                className="w-full bg-blue-600 text-white px-6 py-4 rounded-xl text-base font-bold shadow-lg shadow-blue-100 hover:bg-blue-700 transition-all active:scale-95"
+                className="w-full bg-blue-600 text-white px-6 py-3 rounded-lg text-base font-medium hover:bg-blue-700 transition"
                 aria-label="Book a Workshop mobile"
               >
                 Book Workshop

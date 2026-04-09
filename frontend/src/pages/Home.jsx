@@ -39,34 +39,30 @@ const Home = () => {
     <div className="flex flex-col min-h-screen">
       <main className="flex-grow">
         {/* Hero section */}
-        <section className="bg-gradient-to-br from-[#020617] via-[#020617] to-[#0a1a3a] text-white py-24 px-4 md:py-48 overflow-hidden relative">
-          {/* Refined Background Gradient Overlay */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-blue-900/20 via-transparent to-transparent"></div>
-          
-          <div className="max-w-7xl mx-auto relative z-10 px-4 sm:px-6 lg:px-8">
+        <section className="bg-[#020617] text-white py-24 px-6 md:py-48 md:px-12 relative">
+          <div className="max-w-7xl mx-auto relative z-10">
             <div className="max-w-3xl">
-              <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm font-bold mb-10">
-                <span className="flex h-2 w-2 rounded-full bg-blue-400 mr-3 animate-pulse"></span>
+              <div className="inline-flex items-center px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold mb-8">
                 Now Booking for Summer 2026
               </div>
               
               <div className="max-w-2xl">
-                <h1 className="text-5xl font-bold text-white tracking-tight leading-tight">
+                <h1 className="text-5xl font-bold text-white leading-tight">
                   Modern Engineering.
                 </h1>
-                <p className="text-lg text-gray-300 mt-4 max-w-xl leading-relaxed">
+                <p className="text-gray-400 mt-4 max-w-xl leading-relaxed">
                   Join elite workshops led by industry pioneers. Hands-on projects, expert mentorship, and a world-class curriculum designed for high-performers.
                 </p>
-                <div className="flex flex-col sm:flex-row gap-6">
+                <div className="flex flex-col sm:flex-row gap-4 mt-10">
                   <button 
                     onClick={() => document.getElementById('workshops-grid')?.scrollIntoView({ behavior: 'smooth' })}
-                    className="bg-blue-600 text-white px-10 py-5 rounded-2xl font-black text-lg shadow-2xl shadow-blue-500/40 hover:bg-blue-700 transition-all transform hover:scale-105 active:scale-95 text-center"
+                    className="bg-blue-600 text-white px-8 py-4 rounded-lg font-bold hover:bg-blue-700 transition text-center"
                   >
                     Explore Workshops
                   </button>
                   <button 
                     onClick={scrollToBooking}
-                    className="bg-slate-900 text-white border border-slate-800 px-10 py-5 rounded-2xl font-black text-lg hover:bg-slate-800 transition-all text-center"
+                    className="bg-transparent border border-gray-600 text-gray-300 px-8 py-4 rounded-lg font-bold hover:bg-gray-800 transition text-center"
                   >
                     Secure Your Spot
                   </button>
@@ -74,9 +70,6 @@ const Home = () => {
               </div>
             </div>
           </div>
-          
-          {/* Decorative Gradient Orb */}
-          <div className="absolute top-1/4 -right-20 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[120px] -z-10"></div>
         </section>
 
         {/* Featured Workshops */}
