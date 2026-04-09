@@ -38,6 +38,16 @@ I prioritized **Performance-First Design**:
 The most challenging part was **Architectural Refactoring of Legacy Layouts**. The initial project had `Navbar` and `Footer` components duplicated across multiple pages and nested incorrectly.
 - **Approach**: I performed a "Surgical Refactor" by first mapping the component tree. I then centralized the global layout into `App.jsx` and converted page-level components into clean content fragments. This ensured a "Single Source of Truth" for the UI framework and eliminated rendering bugs caused by duplication.
 
+## 📸 Screenshots
+
+### Desktop View
+![Desktop Preview](docs/screenshots/desktop-preview.png)
+*Modern, clean, and highly professional desktop dashboard.*
+
+### Mobile-First Design
+<img src="docs/screenshots/mobile-preview.png" width="300" alt="Mobile Preview">
+*Touch-friendly mobile experience with adaptive navigation.*
+
 ## 💻 Tech Stack
 - **Frontend**: React 19 (Functional Components, Hooks, Suspense)
 - **Styling**: Tailwind CSS v4 (@tailwindcss/vite)
