@@ -1,7 +1,17 @@
 import React from 'react';
-import Card from '../components/Cards';
+import Navbar from '../components/Navbar';
+import Hero from '../components/Hero';
+import WorkshopCard from '../components/WorkshopCard';
 import Form from '../components/Form';
 
+/**
+ * UX IMPROVEMENTS:
+ * 1. Visual Hierarchy: Clear sections (Hero -> Workshops -> Booking).
+ * 2. Mobile-First: Flexible grid layouts (1 col on mobile, 3 on lg).
+ * 3. Accessibility: Use semantic tags (<header>, <main>, <section>, <footer>).
+ * 4. Performance: Simple structure, components optimized.
+ * 5. Minimal Modern Aesthetic: White bg with Indigo/Blue primary accents.
+ */
 const Home = () => {
   const workshops = [
     {
@@ -30,97 +40,70 @@ const Home = () => {
     }
   ];
 
-  const scrollToBooking = () => {
-    const element = document.getElementById('booking-section');
-    element?.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen font-sans antialiased text-gray-900">
+      <Navbar />
+      
       <main className="flex-grow">
-        {/* Hero section */}
-        <section className="bg-[#020617] text-white py-24 px-6 md:py-48 md:px-12 relative">
-          <div className="max-w-7xl mx-auto relative z-10">
-            <div className="max-w-3xl">
-              <div className="inline-flex items-center px-4 py-1.5 rounded-lg bg-white/5 border border-gray-700 text-gray-300 text-xs font-medium mb-8">
-                Now Booking for Summer 2026
-              </div>
-              
-              <div className="max-w-2xl">
-                <h1 className="text-5xl font-bold text-white leading-tight">
-                  Modern Engineering.
-                </h1>
-                <p className="text-gray-400 mt-4 max-w-xl leading-relaxed">
-                  Join elite workshops led by industry pioneers. Hands-on projects, expert mentorship, and a world-class curriculum designed for high-performers.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 mt-10">
-                  <button 
-                    onClick={() => document.getElementById('workshops-grid')?.scrollIntoView({ behavior: 'smooth' })}
-                    className="bg-white text-black px-8 py-4 rounded-lg font-semibold hover:bg-gray-200 transition text-center"
-                  >
-                    Explore Workshops
-                  </button>
-                  <button 
-                    onClick={scrollToBooking}
-                    className="bg-transparent border border-gray-600 text-gray-300 px-8 py-4 rounded-lg font-semibold hover:bg-gray-800 transition text-center"
-                  >
-                    Secure Your Spot
-                  </button>
-                </div>
-              </div>
+        <Hero />
+
+        {/* Featured Workshops Section */}
+        <section id="workshops-grid" className="py-24 md:py-32 px-6 bg-gray-50/50">
+          <div className="max-w-7xl mx-auto">
+            <header className="text-center mb-16 md:mb-24">
+              <h2 className="text-3xl md:text-5xl font-black text-gray-900 mb-6 tracking-tight">
+                Featured Workshops
+              </h2>
+              <div className="w-16 h-1 bg-blue-600 mx-auto rounded-full mb-8"></div>
+              <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto font-medium leading-relaxed">
+                Curated learning experiences designed for real-world impact. Explore our most popular courses.
+              </p>
+            </header>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+              {workshops.map((workshop) => (
+                <WorkshopCard 
+                  key={workshop.id}
+                  title={workshop.title}
+                  description={workshop.description}
+                  date={workshop.date}
+                  price={workshop.price}
+                  duration={workshop.duration}
+                />
+              ))}
+            </div>
+
+            <div className="text-center mt-16 md:mt-24">
+              <button className="inline-flex items-center gap-2 text-blue-600 font-bold text-lg hover:text-blue-700 transition-all group">
+                View All Upcoming Workshops 
+                <span className="group-hover:translate-x-2 transition-transform">&rarr;</span>
+              </button>
             </div>
           </div>
         </section>
 
-        {/* Featured Workshops */}
-        <section id="workshops-grid" className="py-32 px-4 bg-gray-50">
-          <div className="max-w-7xl mx-auto text-center mb-24 px-4">
-            <h2 className="text-4xl md:text-5xl font-bold text-[#020617] mb-6 tracking-tight">Featured Workshops</h2>
-            <div className="w-16 h-1 bg-gray-800 mx-auto mb-10"></div>
-            <p className="text-gray-500 max-w-2xl mx-auto font-medium leading-relaxed">
-              Curated, high-impact learning experiences designed for immediate real-world application.
-            </p>
-          </div>
-          
-          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4 sm:px-6 lg:px-8">
-            {workshops.map((workshop) => (
-              <Card 
-                key={workshop.id}
-                title={workshop.title}
-                description={workshop.description}
-                date={workshop.date}
-                price={workshop.price}
-                duration={workshop.duration}
-              />
-            ))}
-          </div>
-          
-          <div className="text-center mt-24">
-            <button className="text-[#020617] font-bold text-xl hover:text-gray-600 transition-all flex items-center justify-center mx-auto group">
-              View All Workshops 
-              <span className="ml-3 group-hover:translate-x-2 transition-transform">&rarr;</span>
-            </button>
-          </div>
-        </section>
-
         {/* Booking Section */}
-        <section id="booking-section" className="py-40 px-4 bg-white relative overflow-hidden">
-          <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-24 px-4 sm:px-6 lg:px-8">
+        <section id="booking-section" className="py-24 md:py-40 px-6 bg-white border-t border-gray-100 overflow-hidden relative">
+          <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16 md:gap-24">
             <div className="lg:w-1/2">
-              <h2 className="text-4xl md:text-6xl font-bold text-[#020617] mb-10 tracking-tight leading-tight">Ready to level up?</h2>
-              <p className="text-xl text-gray-500 mb-12 leading-relaxed font-medium">
-                Take the first step towards mastery. Our booking process is streamlined, secure, and built for your success.
+              <span className="text-blue-600 font-bold uppercase tracking-widest text-sm mb-4 block">Take the Leap</span>
+              <h2 className="text-4xl md:text-6xl font-black text-gray-900 mb-8 tracking-tight leading-tight">
+                Ready to Accelerate Your Career?
+              </h2>
+              <p className="text-lg md:text-xl text-gray-600 mb-10 leading-relaxed font-medium">
+                Our booking process is simple, secure, and built for students. Secure your spot today and join thousands of successful alumni.
               </p>
+              
               <ul className="space-y-6">
                 {[
-                  "Expert-led interactive sessions",
-                  "Comprehensive curriculum & resources",
-                  "Industry-recognized certification",
-                  "Private Discord community access"
+                  "Hands-on interactive project sessions",
+                  "Lifetime access to workshop resources",
+                  "Industry-recognized certificate of completion",
+                  "Direct mentorship from top developers"
                 ].map((item, index) => (
-                  <li key={index} className="flex items-center text-[#020617] font-semibold text-lg">
-                    <div className="w-8 h-8 bg-gray-50 text-gray-900 rounded-lg flex items-center justify-center mr-4 flex-shrink-0 border border-gray-100">
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <li key={index} className="flex items-start gap-4 text-gray-800 font-bold text-base md:text-lg">
+                    <div className="w-6 h-6 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
                       </svg>
                     </div>
@@ -129,13 +112,33 @@ const Home = () => {
                 ))}
               </ul>
             </div>
+            
             <div className="lg:w-1/2 w-full relative">
-              <div className="absolute -inset-8 bg-gray-100/50 rounded-lg blur-3xl -z-10"></div>
-              <Form />
+              {/* Form container with enhanced UI */}
+              <div className="bg-white p-2 rounded-3xl border border-gray-100 shadow-2xl relative z-10">
+                <Form />
+              </div>
+              {/* Background decorative element */}
+              <div className="absolute -inset-10 bg-blue-50/50 rounded-full blur-3xl -z-10 animate-pulse"></div>
             </div>
           </div>
         </section>
       </main>
+
+      <footer className="bg-gray-900 text-white py-12 px-6">
+         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            <div className="text-xl font-black tracking-tighter">
+              WORKSHOP<span className="text-blue-500">PORTAL</span>
+            </div>
+            <div className="text-gray-400 text-sm font-medium">
+              &copy; 2026 WorkshopPortal. All rights reserved. Built for future engineers.
+            </div>
+            <div className="flex gap-6">
+               <a href="#" className="text-gray-400 hover:text-white transition-colors">Privacy</a>
+               <a href="#" className="text-gray-400 hover:text-white transition-colors">Terms</a>
+            </div>
+         </div>
+      </footer>
     </div>
   );
 };

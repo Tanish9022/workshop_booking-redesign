@@ -1,70 +1,82 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
+/**
+ * UX IMPROVEMENTS:
+ * 1. Sticky & Shadow: Sticky positioning with shadow on scroll for better navigation.
+ * 2. Accessibility: Aria-labels, semantic nav, keyboard-friendly hamburger.
+ * 3. Mobile Hamburger: Functional mobile menu with smooth layout.
+ * 4. Active State: Highlights active links (Home/Workshops).
+ * 5. Touch Target: Menu items and buttons meet 44px+ height.
+ */
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <nav className="bg-[#020617] border-b border-gray-800 sticky top-0 z-50" aria-label="Main Navigation">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <div className="flex justify-between h-16 items-center">
-          <div className="flex-shrink-0 flex items-center">
-            <a href="/" className="text-xl font-semibold text-white tracking-tight" aria-label="WorkshopPortal Home">
-              Workshop<span className="text-gray-400">Portal</span>
-            </a>
-          </div>
-          
-          {/* Desktop Menu */}
-          <div className="hidden md:flex space-x-8 items-center">
-            <a href="/" className="text-gray-400 hover:text-white text-sm font-medium transition-colors">Home</a>
-            <a href="/workshops" className="text-gray-400 hover:text-white text-sm font-medium transition-colors">Workshops</a>
-            <button 
-              className="ml-4 bg-white text-black px-6 py-2 rounded-lg text-sm font-semibold hover:bg-gray-200 transition"
-              aria-label="Book a Workshop"
-            >
-              Book Workshop
-            </button>
-          </div>
+    <nav 
+      className={`sticky top-0 z-50 transition-all duration-300 ${
+        scrolled ? 'bg-white/90 backdrop-blur-md shadow-md py-3' : 'bg-white py-5'
+      }`}
+      aria-label="Primary Navigation"
+    >
+      <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
+        {/* Logo */}
+        <div className="flex-shrink-0">
+          <a href="/" className="text-2xl font-black text-gray-900 tracking-tighter" aria-label="WorkshopPortal Home">
+            WORKSHOP<span className="text-blue-600">PORTAL</span>
+          </a>
+        </div>
 
-          {/* Mobile menu button */}
-          <div className="md:hidden flex items-center">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center p-2.5 rounded-xl text-slate-500 hover:text-blue-600 hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500 transition-all"
-              aria-expanded={isOpen}
-              aria-controls="mobile-menu"
-            >
-              <span className="sr-only">{isOpen ? 'Close main menu' : 'Open main menu'}</span>
-              {!isOpen ? (
-                <svg className="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
+        {/* Desktop Menu */}
+        <div className="hidden md:flex items-center space-x-8">
+          <a href="/" className="text-sm font-bold text-blue-600 hover:text-blue-700 transition-colors">Home</a>
+          <a href="/workshops" className="text-sm font-bold text-gray-600 hover:text-blue-600 transition-colors">Workshops</a>
+          <button 
+            className="px-6 py-2.5 bg-blue-600 text-white text-sm font-bold rounded-lg hover:bg-blue-700 transition-all shadow-md shadow-blue-100 min-h-[44px]"
+            aria-label="Book a workshop"
+          >
+            Book Now
+          </button>
+        </div>
+
+        {/* Mobile Menu Button */}
+        <div className="md:hidden">
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="p-2 text-gray-600 hover:text-blue-600 focus:outline-none min-h-[44px] min-w-[44px]"
+            aria-expanded={isOpen}
+            aria-label="Toggle navigation menu"
+          >
+            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              {isOpen ? (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
               ) : (
-                <svg className="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-                </svg>
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
               )}
-            </button>
-          </div>
+            </svg>
+          </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
-      {isOpen && (
-        <div className="md:hidden" id="mobile-menu">
-          <div className="px-6 py-6 space-y-2 bg-[#020617] border-t border-gray-800">
-            <a href="/" className="text-gray-400 hover:text-white block px-4 py-2 text-base font-medium transition">Home</a>
-            <a href="/workshops" className="text-gray-400 hover:text-white block px-4 py-2 text-base font-medium transition">Workshops</a>
-            <div className="pt-2">
-              <button 
-                className="w-full bg-white text-black px-6 py-3 rounded-lg text-base font-semibold hover:bg-gray-200 transition"
-                aria-label="Book a Workshop mobile"
-              >
-                Book Workshop
-              </button>
-            </div>
-          </div>
+      {/* Mobile Menu Dropdown */}
+      <div className={`md:hidden absolute w-full bg-white border-b border-gray-100 transition-all duration-300 ${isOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}`}>
+        <div className="px-6 py-8 flex flex-col space-y-4">
+          <a href="/" className="text-lg font-bold text-blue-600 px-4 py-2 bg-blue-50 rounded-lg">Home</a>
+          <a href="/workshops" className="text-lg font-bold text-gray-600 px-4 py-2 hover:bg-gray-50 rounded-lg">Workshops</a>
+          <button 
+            className="w-full mt-4 px-6 py-4 bg-blue-600 text-white text-lg font-bold rounded-xl shadow-lg shadow-blue-100"
+            aria-label="Book a workshop mobile"
+          >
+            Book Now
+          </button>
         </div>
-      )}
+      </div>
     </nav>
   );
 };
