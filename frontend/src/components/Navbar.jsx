@@ -4,21 +4,21 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="bg-white border-b border-gray-200 sticky top-0 z-50" aria-label="Main Navigation">
+    <nav className="bg-[#020617] border-b border-gray-800 sticky top-0 z-50" aria-label="Main Navigation">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="flex justify-between h-16 items-center">
           <div className="flex-shrink-0 flex items-center">
-            <a href="/" className="text-xl font-bold text-blue-600 tracking-tight" aria-label="WorkshopPortal Home">
-              Workshop<span className="text-slate-900">Portal</span>
+            <a href="/" className="text-xl font-semibold text-white tracking-tight" aria-label="WorkshopPortal Home">
+              Workshop<span className="text-gray-400">Portal</span>
             </a>
           </div>
           
           {/* Desktop Menu */}
           <div className="hidden md:flex space-x-8 items-center">
-            <a href="/" className="text-gray-600 hover:text-blue-600 text-sm font-medium transition-colors">Home</a>
-            <a href="/workshops" className="text-gray-600 hover:text-blue-600 text-sm font-medium transition-colors">Workshops</a>
+            <a href="/" className="text-gray-400 hover:text-white text-sm font-medium transition-colors">Home</a>
+            <a href="/workshops" className="text-gray-400 hover:text-white text-sm font-medium transition-colors">Workshops</a>
             <button 
-              className="ml-4 bg-blue-600 text-white px-5 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 transition"
+              className="ml-4 bg-white text-black px-6 py-2 rounded-lg text-sm font-semibold hover:bg-gray-200 transition"
               aria-label="Book a Workshop"
             >
               Book Workshop
@@ -51,12 +51,12 @@ const Navbar = () => {
       {/* Mobile Menu */}
       {isOpen && (
         <div className="md:hidden" id="mobile-menu">
-          <div className="px-6 py-6 space-y-2 bg-white border-t border-gray-100">
-            <a href="/" className="text-gray-600 hover:text-blue-600 block px-4 py-2 text-base font-medium transition">Home</a>
-            <a href="/workshops" className="text-gray-600 hover:text-blue-600 block px-4 py-2 text-base font-medium transition">Workshops</a>
+          <div className="px-6 py-6 space-y-2 bg-[#020617] border-t border-gray-800">
+            <a href="/" className="text-gray-400 hover:text-white block px-4 py-2 text-base font-medium transition">Home</a>
+            <a href="/workshops" className="text-gray-400 hover:text-white block px-4 py-2 text-base font-medium transition">Workshops</a>
             <div className="pt-2">
               <button 
-                className="w-full bg-blue-600 text-white px-6 py-3 rounded-lg text-base font-medium hover:bg-blue-700 transition"
+                className="w-full bg-white text-black px-6 py-3 rounded-lg text-base font-semibold hover:bg-gray-200 transition"
                 aria-label="Book a Workshop mobile"
               >
                 Book Workshop
