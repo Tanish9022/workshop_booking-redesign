@@ -3,14 +3,14 @@ import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import WorkshopCard from '../components/WorkshopCard';
 import Form from '../components/Form';
+import Footer from '../components/Footer';
 
 /**
  * UX IMPROVEMENTS:
- * 1. Visual Hierarchy: Clear sections (Hero -> Workshops -> Booking).
- * 2. Mobile-First: Flexible grid layouts (1 col on mobile, 3 on lg).
- * 3. Accessibility: Use semantic tags (<header>, <main>, <section>, <footer>).
- * 4. Performance: Simple structure, components optimized.
- * 5. Minimal Modern Aesthetic: White bg with Indigo/Blue primary accents.
+ * 1. Layout Structure: Navbar -> Hero -> Content -> Footer.
+ * 2. Visual Hierarchy: Clear sections with consistent vertical padding (py-24 to py-40).
+ * 3. Accessibility: Semantic HTML tags used throughout.
+ * 4. Premium Aesthetic: Modern typography and color palette.
  */
 const Home = () => {
   const workshops = [
@@ -125,20 +125,7 @@ const Home = () => {
         </section>
       </main>
 
-      <footer className="bg-gray-900 text-white py-12 px-6">
-         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
-            <div className="text-xl font-black tracking-tighter">
-              WORKSHOP<span className="text-blue-500">PORTAL</span>
-            </div>
-            <div className="text-gray-400 text-sm font-medium">
-              &copy; 2026 WorkshopPortal. All rights reserved. Built for future engineers.
-            </div>
-            <div className="flex gap-6">
-               <a href="#" className="text-gray-400 hover:text-white transition-colors">Privacy</a>
-               <a href="#" className="text-gray-400 hover:text-white transition-colors">Terms</a>
-            </div>
-         </div>
-      </footer>
+      <Footer />
     </div>
   );
 };
