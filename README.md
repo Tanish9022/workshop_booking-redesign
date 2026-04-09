@@ -2,6 +2,9 @@
 
 A modern, mobile-first frontend redesign for a legacy workshop booking platform. This project transforms a functional but dated interface into a high-performance, accessible, and visually cohesive user experience.
 
+## ⚠️ Note on Original Repository
+The original Django project encountered static file configuration issues, which prevented the frontend from rendering correctly. This redesign was conducted independently to resolve those visual limitations, focusing on modernizing the UI/UX while strictly adhering to the project's intended functional structure.
+
 ## ✨ Recent Updates (April 2026)
 - **Premium Minimal Color System**: Refactored the entire UI to a sophisticated dark/neutral theme using `bg-[#020617]` and grayscale accents.
 - **Global Layout Refactor**: Centralized `Navbar` and `Footer` in `App.jsx` for single-instance rendering.
